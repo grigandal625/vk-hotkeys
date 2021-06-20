@@ -34,6 +34,8 @@ if __name__ == '__main__':
     vk_session = vk_api.VkApi(login, password)
     vk_session.auth()
     commands = json.loads(open('hotkeys.json').read())
+    commands.pop('Alt + S', None)
+    commands.pop('Alt + Q', None)
     keyboard.add_hotkey('Alt + S', lambda: send_screen())
     for key in commands:
         keyboard.add_hotkey(key, lambda: send_text(commands[key]))
