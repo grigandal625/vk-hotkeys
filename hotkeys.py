@@ -3,7 +3,6 @@ from vk_messages import MessagesAPI
 from vk_messages.utils import get_random
 import vk
 from vk.utils import LoggingSession, get_form_action, get_url_query
-from vk_api import VkUpload
 import keyboard
 import json
 import requests
@@ -89,7 +88,7 @@ def get_text_sender(text, messages, peer_id):
     return lambda: send_text(text, messages, peer_id)
 
 if __name__ == '__main__':
-    auth = json.loads(open('vk-auth.json').read(), encoding='utf-8')
+    auth = json.loads(open('vk-auth.json', encoding='utf-8').read())
     login, password = auth['login'], auth['password']
     access_token = get_access_token(login, password)
     messages = MessagesAPI(login=login, password=str(password.encode('ANSI')).replace('\\x', '%')[2:-1],
