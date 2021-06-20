@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 > `Alt + Q` - exit programm
 
-- run in PowerShell
+- run in PowerShell or run in file explorer [start.bat](./start.bat)
 
 ```PowerShell
 ./start.bat
