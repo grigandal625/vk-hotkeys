@@ -1,2 +1,2 @@
-ф@echo off
+@echo off
 venv\Scripts\pythonw .\hotkeys.py

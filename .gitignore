@@ -1,3 +1,6 @@
 venv/
 .idea/
+.vscode/
+sessions/
 vk-auth.json
+vk_config.v2.json
