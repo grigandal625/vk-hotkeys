@@ -39,7 +39,9 @@ pip install -r requirements.txt
 ```
 
 > **RESERVED HOTKEYS**
+
 > `Alt + S` - send screenshot
+
 > `Alt + Q` - exit programm
 
 - run in PowerShell
@@ -47,7 +49,3 @@ pip install -r requirements.txt
 ```PowerShell
 ./start.bat
 ```
-
-## 3. Reserved hotkeys
-
-- `Alt + S` - send screenshot to
