@@ -3,6 +3,7 @@
 ## 1. Install
 
 - clone repo
+- install python ([my version is 3.9](https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64.exe)) and venv
 - create and activate venv (PowerShell)
 
 ```PowerShell
