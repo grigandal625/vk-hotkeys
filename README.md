@@ -18,6 +18,8 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+- go to [link](https://oauth.vk.com/authorize?client_id=7884254&display=page&scope=offline,photos&response_type=token&v=5.131), authorize and accept access to required permissions
+
 ## 2. Run
 
 - enter `login`, `password` and `peer` to [vk-auth.json](./vk-auth.json) like
