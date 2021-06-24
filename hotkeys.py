@@ -65,17 +65,20 @@ def get_access_token(login, password, client_id='7884254', scope='offline,photos
         raise ValueError(message)
 
 def send_screen(api: vk.API, messages, peer_id):
-    im = ImageGrab.grab()
-    im.save('screen.jpg')
+    try:
+        im = ImageGrab.grab()
+        im.save('screen.jpg')
 
-    filename = 'screen.jpg'
-    photos_list = upload_photo(api, filename)
-    attachment = 'photo{owner_id}_{id}'.format(**photos_list[0])
-    print(attachment)
-    messages.method('messages.send', user_id=peer_id,
-                    message='Скрин',
-                    attachment=attachment,
-                    random_id=get_random())
+        filename = 'screen.jpg'
+        photos_list = upload_photo(api, filename)
+        attachment = 'photo{owner_id}_{id}'.format(**photos_list[0])
+        print(attachment)
+        messages.method('messages.send', user_id=peer_id,
+                        message='Скрин',
+                        attachment=attachment,
+                        random_id=get_random())
+    except Exception as e:
+        print(e)
 
 
 def send_text(text, messages, peer_id):
@@ -83,7 +86,12 @@ def send_text(text, messages, peer_id):
 
 
 def get_text_sender(text, messages, peer_id):
-    return lambda: send_text(text, messages, peer_id)
+    def sender():
+        try:
+            send_text(text, messages, peer_id)
+        except Exception as e:
+            print(e)
+    return sender
 
 if __name__ == '__main__':
     auth = json.loads(open('vk-auth.json', encoding='utf-8').read())
