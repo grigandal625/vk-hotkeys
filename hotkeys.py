@@ -12,12 +12,10 @@ import uuid
 VERSION = '5.131'
 
 def upload_photo(api, filename):
-    albums = api.photos.getAlbums(v=VERSION)
-    album_id = str(albums['items'][0]['id'])
-    upload = api.photos.getUploadServer(album_id=album_id, v=VERSION)
+    upload = api.photos.getMessagesUploadServer(v=VERSION)
     upload_url = upload['upload_url']
     resp = requests.post(upload_url, files = {'file': open(filename, 'rb')}).json()
-    response = api.photos.save(album_id=album_id, server=resp['server'], photos_list=resp['photos_list'], hash=resp['hash'], latitude='0', longitude='0', caption='photo-' + str(uuid.uuid4()), v=VERSION)
+    response = api.photos.saveMessagesPhoto(server=resp['server'], photo=resp['photo'], hash=resp['hash'], latitude='0', longitude='0', caption='photo-' + str(uuid.uuid4()), v=VERSION)
     return response
 
 
